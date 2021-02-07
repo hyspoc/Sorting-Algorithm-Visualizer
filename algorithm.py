@@ -49,3 +49,9 @@ class QuickSort(Sort):
     def swap(self, x, y):
         self.array[x], self.array[y] = self.array[y], self.array[x]
         self.visualizer.update(self.array)
+
+
+class MergeSort(Sort):
+
+    def sort(self):
+        super.sort()
