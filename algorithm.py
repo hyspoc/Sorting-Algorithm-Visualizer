@@ -14,6 +14,7 @@ class Sort():
 
     def set_random_array(self, length):
         self.array = [random.randint(Sort.MIN_RANDOM_ELEMENT, Sort.MAX_RANDOM_ELEMENT) for _ in range(length)]
+        random.shuffle(self.array)
 
     def sort(self):
         self.visualizer = viz.Visualier(self.array)
@@ -54,4 +55,25 @@ class QuickSort(Sort):
 class MergeSort(Sort):
 
     def sort(self):
-        super.sort()
+        super().sort()
+        self.merge_sort(0, len(self.array)-1)
+
+    def merge_sort(self, l, r):
+        if l<r:
+            m = l + (r-l)//2
+            self.merge_sort(l, m)
+            self.merge_sort(m+1, r)
+            self.merge(l, m, r)
+
+    def merge(self, l, m, r):
+        i, j = l, m+1
+
+        while i<=m and j<=r:
+            if self.array[i]>self.array[j]:
+                self.swap(i, j)
+                j+=1
+            i+=1
+
+    def swap(self, i, j):
+        self.array[i], self.array[i+1:j+1] = self.array[j], self.array[i:j]
+        self.visualizer.update(self.array)

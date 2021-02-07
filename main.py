@@ -6,6 +6,7 @@ import visualizer as viz
 ASK_ALGO_TEXT = """
 Algorithm:
 1. Quick Sort
+2. Merge Sort
 0. Exit
 Enter choice: """
 
@@ -38,6 +39,8 @@ def get_algo_response():
         exit()
     elif response==1:
         return algo.QuickSort()
+    elif response==2:
+        return algo.MergeSort()
     else:
         return get_algo_response()
 
