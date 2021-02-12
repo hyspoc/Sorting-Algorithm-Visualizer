@@ -1,5 +1,3 @@
 # Sorting-Algorithm-Visualizer
 
-Visualizer for Sorting Algorithms
-
-Algorithms Supported:  Quick Sort
+Algorithms Supported:  Quick Sort, Merge Sort
