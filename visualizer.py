@@ -3,7 +3,7 @@ import numpy as np
 class Visualier():
 
     MIN_ARRAY_LENGTH = 1
-    MAX_ARRAY_LENGTH = 30
+    MAX_ARRAY_LENGTH = 50
     SORT_PAUSE = 0.2
     END_PAUSE = 10
 
