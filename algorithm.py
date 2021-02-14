@@ -19,6 +19,25 @@ class Sort():
     def sort(self):
         pass
 
+# class InsertionSort(Sort):
+#
+#     def sort(self):
+#         self.visualizer = viz.Visualier(self.array)
+#         self.quick_sort(0, len(self.array)-1)
+#         self.visualizer.end()
+#
+#     def insertion_sort(self):
+#         for i in range(1, len(self.array)):
+#             curr = self.array[i]
+#             for j in range(i-1, -1, -1):
+#                 if curr >= self.array[j]:
+#                     self.array[j+1] = curr
+#                     break
+#                 else:
+#                     self.array[j+1] = self.array[j]
+#                     self.array[j] = curr
+#
+# 妹看懂这个class要怎么写 瞎写滴 为啥别人都分了好几个部分？ 太困了 我睡了 啾啾
 
 class QuickSort(Sort):
 
