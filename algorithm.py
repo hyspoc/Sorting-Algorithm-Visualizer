@@ -36,8 +36,6 @@ class Sort():
 #                 else:
 #                     self.array[j+1] = self.array[j]
 #                     self.array[j] = curr
-#
-# 妹看懂这个class要怎么写 瞎写滴 为啥别人都分了好几个部分？ 太困了 我睡了 啾啾
 
 class QuickSort(Sort):
 
