@@ -19,24 +19,6 @@ class Sort():
     def sort(self):
         pass
 
-# class InsertionSort(Sort):
-#
-#     def sort(self):
-#         self.visualizer = viz.Visualier(self.array)
-#         self.quick_sort(0, len(self.array)-1)
-#         self.visualizer.end()
-#
-#     def insertion_sort(self):
-#         for i in range(1, len(self.array)):
-#             curr = self.array[i]
-#             for j in range(i-1, -1, -1):
-#                 if curr >= self.array[j]:
-#                     self.array[j+1] = curr
-#                     break
-#                 else:
-#                     self.array[j+1] = self.array[j]
-#                     self.array[j] = curr
-
 class QuickSort(Sort):
 
     def sort(self):
@@ -98,3 +80,21 @@ class MergeSort(Sort):
     def swap(self, i, j):
         self.array[i], self.array[i+1:j+1] = self.array[j], [n for n in self.array[i:j]]
         self.visualizer.update(self.array, facecolors=[i], edgecolors=[i,j])
+
+class InsertionSort(Sort):
+
+    def sort(self):
+        self.visualizer = viz.Visualier(self.array)
+        self.insertion_sort()
+        self.visualizer.end()
+
+    def insertion_sort(self):
+        for i in range(1, len(self.array)):
+            curr = self.array[i]
+            for j in range(i-1, -1, -1):
+                if curr >= self.array[j]:
+                    self.array[j+1] = curr
+                    break
+                else:
+                    self.array[j+1] = self.array[j]
+                    self.array[j] = curr
