@@ -6,6 +6,8 @@ def create_algorithm(algorithm_name):
         sort_algo = QuickSort()
     elif algorithm_name=='Merge Sort':
         sort_algo = MergeSort()
+    elif algorithm_name=='Bubble Sort':
+        sort_algo = BubbleSort()
     else:
         sort_algo = Sort()
     return sort_algo
@@ -17,12 +19,15 @@ class Sort():
 
     def __init__(self, unsorted_array=[]):
         self.array = unsorted_array
+        self.length = len(self.array)
 
     def set_array(self, unsorted_array):
         self.array = unsorted_array
+        self.length = len(self.array)
 
     def set_random_array(self, length):
         self.array = [random.randint(Sort.MIN_RANDOM_ELEMENT, Sort.MAX_RANDOM_ELEMENT) for _ in range(length)]
+        self.length = len(self.array)
         random.shuffle(self.array)
 
     def sort(self):
@@ -33,7 +38,7 @@ class QuickSort(Sort):
 
     def sort(self):
         self.visualizer = viz.Visualier(self.array)
-        self.quick_sort(0, len(self.array)-1)
+        self.quick_sort(0, self.length-1)
         self.visualizer.end()
 
     def quick_sort(self, low, high):
@@ -66,7 +71,7 @@ class MergeSort(Sort):
 
     def sort(self):
         self.visualizer = viz.Visualier(self.array)
-        self.merge_sort(0, len(self.array)-1)
+        self.merge_sort(0, self.length-1)
         self.visualizer.end()
 
     def merge_sort(self, l, r):
@@ -90,3 +95,22 @@ class MergeSort(Sort):
     def swap(self, i, j):
         self.array[i], self.array[i+1:j+1] = self.array[j], [n for n in self.array[i:j]]
         self.visualizer.update(self.array, facecolors=[i], edgecolors=[i,j])
+
+class BubbleSort(Sort):
+
+    def sort(self):
+        self.visualizer = viz.Visualier(self.array)
+        self.bubble_sort()
+        self.visualizer.end()
+
+    def bubble_sort(self):
+        for i in range(self.length):
+            for j in range(self.length-i-1):
+                self.swap(j, j+1)
+
+    def swap(self, x, y):
+        if self.array[x] > self.array[y]:
+            self.array[x], self.array[y] = self.array[y], self.array[x]
+            self.visualizer.update(self.array, facecolors=[x,y], edgecolors=[x,y])
+        else:
+            self.visualizer.update(self.array, facecolors=[], edgecolors=[x,y])

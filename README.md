@@ -1,6 +1,6 @@
 # Sorting-Algorithm-Visualizer
 
-Algorithms Supported: Quick Sort, Merge Sort
+Algorithms Supported: Quick Sort, Merge Sort, Bubble Sort
 
 ## Quick Sort
 
