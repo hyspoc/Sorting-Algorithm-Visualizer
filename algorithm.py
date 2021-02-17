@@ -1,10 +1,19 @@
 import random
 import visualizer as viz
 
+def create_algorithm(algorithm_name):
+    if algorithm_name=='Quick Sort':
+        sort_algo = QuickSort()
+    elif algorithm_name=='Merge Sort':
+        sort_algo = MergeSort()
+    else:
+        sort_algo = Sort()
+    return sort_algo
+
 class Sort():
 
     MIN_RANDOM_ELEMENT = 1
-    MAX_RANDOM_ELEMENT = 100
+    MAX_RANDOM_ELEMENT = 200
 
     def __init__(self, unsorted_array=[]):
         self.array = unsorted_array

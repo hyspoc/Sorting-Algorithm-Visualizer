@@ -1,10 +1,13 @@
+import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
+import time
+
 class Visualier():
 
     MIN_ARRAY_LENGTH = 1
     MAX_ARRAY_LENGTH = 50
-    SORT_PAUSE = 0.2
+    SORT_PAUSE = 0.02
     END_PAUSE = 10
 
     def __init__(self, array=[]):
@@ -21,12 +24,12 @@ class Visualier():
         self.ax.xaxis.set_visible(False)
         self.bars = self.ax.bar([str(n) for n in range(self.length)], self.array, facecolor=self.default_facecolor)
 
+        self.plot = st.pyplot(plt)
+
     def update(self, new_array, facecolors=[], edgecolors=[]):
-        plt.pause(Visualier.SORT_PAUSE)
+        time.sleep(Visualier.SORT_PAUSE)
 
         for i, bar, num, new_num in zip(range(self.length), self.bars, self.array, new_array):
-            bar.set_facecolor('white')
-            bar.set_edgecolor('white')
             bar.set_height(new_num)
 
             if i in facecolors:
@@ -39,11 +42,12 @@ class Visualier():
             else:
                 bar.set_edgecolor(self.default_edgecolor)
 
+        self.plot.pyplot(plt)
+
         self.array= [n for n in new_array]
 
     def end(self):
         for bar in self.bars:
             bar.set_facecolor(self.default_facecolor)
             bar.set_edgecolor(self.default_edgecolor)
-
-        plt.pause(Visualier.END_PAUSE)
+        self.plot.pyplot(plt)
