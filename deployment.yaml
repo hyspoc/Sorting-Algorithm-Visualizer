@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: sorting-algorithm-visualizer
+ labels:
+   app: streamlit
+spec:
+ selector:
+   matchLabels:
+     app: streamlit
+     tier: web
+ template:
+   metadata:
+     labels:
+       app: streamlit
+       tier: web
+   spec:
+     containers:
+     - name: sorting-algorithm-visualizer
+       image: gcr.io/dark-garden-305203/sorting-algorithm-visualizer
+       ports:
+       - containerPort: 8501
