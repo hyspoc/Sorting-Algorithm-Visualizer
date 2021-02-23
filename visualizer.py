@@ -6,8 +6,8 @@ import time
 class Visualier():
 
     MIN_ARRAY_LENGTH = 1
-    MAX_ARRAY_LENGTH = 50
-    SORT_PAUSE = 0.02
+    MAX_ARRAY_LENGTH = 100
+    SORT_PAUSE = 0.001
     END_PAUSE = 10
 
     def __init__(self, array=[]):
